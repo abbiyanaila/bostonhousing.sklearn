@@ -21,15 +21,9 @@ def predict_boston(LSTAT, RM, PTRATIO):
         pred = clf.predict(test)
     return pred[0]
 
-# def predict_boston(LSTAT, RM, PTRATIO):
-#     test = np.array([[ LSTAT, RM, PTRATIO]])
-#     clf = pd.read_pickle('weight/boston.sklearn_190319121425.pkl')
-#     pred = clf.predict(test)
-#     return pred[0]
-
 if __name__ == '__main__':
-    label = ['LSTAT', 'RM', 'PTRATIO']
     out = predict_boston(args.LSTAT, args.RM, args.PTRATIO)
-    print(out)
+    print(f'The prediction of price is: ${out}')
+
 
 
