@@ -43,7 +43,7 @@ X_std_train = sc_x.fit_transform(X_train)
 
 
 """algorithms for training"""
-if args.algorithm == 'rm':
+if args.algorithm == 'lr':
     model = LinearRegression()
     model.fit(X_train, y_train)
 elif args.algorithm == 'polynomial':
