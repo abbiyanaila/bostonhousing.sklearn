@@ -76,8 +76,8 @@ if args.save_to == None:
     dstr = datetime.datetime.now().strftime("%y%m%d%H%M%S")
     pkl_filename = "weight/boston.sklearn_" + dstr + ".pkl"
     with open(pkl_filename, 'wb') as file:
-        pickle.dump(forest, file)
+        pickle.dump(model, file)
 else:
     pkl_filename = args.save_to
     with open(pkl_filename, 'wb') as file:
-        pkl_filename(forest, file)
+        pickle.dump(model, file)
