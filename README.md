@@ -12,11 +12,11 @@ If you do not have Python installed yet, it is highly recommended that you insta
 ## Run
 In a terminal or command window, navigate to the notebook directory and run one of the following commands:
 
-`iris.ipynb`
+`bostonhousing.ipynb`
 
 This will open the Jupyter Notebook software and project file in your browser.
 
-You can also open the files of python, I use pycharm to bring forward sintaks from `iris.ipynb` to `predic.py` and `train.py`, in those files I use argparse Python standard library, so we can call the parsing argument in the command-line. 
+You can also open the files of python, I use pycharm to bring forward sintaks from `bostonhousing.ipynb` to `predic.py` and `train.py`, in those files I use argparse Python standard library, so we can call the parsing argument in the command-line. 
 
 ## General Documentation 
 To running predic.py :
@@ -71,3 +71,66 @@ R2 variance score of testing set: 0.6850018441906278
 R2 variance score of training set: 0.6509041568614722
 ```
 Runing the script with call argument of --path, --feature_column, --target_column, and --algorithm, --algorithm is the argument contained in algorithms of lr (Linear Regression), polynomial (Polynomial), you can choose algorithm that will you use for training boston housing, and it will show you the Mean Square Error of testing and training and R2 variance testing and training from algorithm that you use.
+
+```html
+$ python train.py --path=dataset/housing.data --feature_column=LSTAT,RM,PTRATIO --target_column=MEDV --algorithm=polynomial --save_to=weight/testboston.pkl
+```
+Runing the script with call argument of --path, --feature_column, --target_column, --algorithm and --save_to, --save_to for the choose the directory that will use for save the pkl file with a predetermined directory.
+
+```html
+$ python train.py --path=dataset/housing.data --feature_column=LSTAT,RM,PTRATIO --target_column=MEDV --algorithm=polynomial --save_to=/home/abbiyanaila/STUDY/testboston.pkl
+```
+Runing the script with call argument of --path, --feature_column, --target_column, --algorithm and --save_to, --save_to for the choose the directory that will use for save the pkl file with directory that will you choose.
+
+## Data
+The dataset used in this project is included as housing.data in dataset directory. This dataset is a freely available on the [UCI Machine Learning](https://archive.ics.uci.edu/ml/machine-learning-databases/housing/). This dataset has the following attributes:
+
+Title: Boston Housing Data
+
+Sources:
+   - Origin:  This dataset was taken from the StatLib library which is
+                maintained at Carnegie Mellon University.
+   - Creator:  Harrison, D. and Rubinfeld, D.L. 'Hedonic prices and the 
+                 demand for clean air', J. Environ. Economics & Management,
+                 vol.5, 81-102, 1978.
+   - Date: July 7, 1993
+   
+Attribute Information:
+
+    1. CRIM      per capita crime rate by town
+    2. ZN        proportion of residential land zoned for lots over 
+                 25,000 sq.ft.
+    3. INDUS     proportion of non-retail business acres per town
+    4. CHAS      Charles River dummy variable (= 1 if tract bounds 
+                 river; 0 otherwise)
+    5. NOX       nitric oxides concentration (parts per 10 million)
+    6. RM        average number of rooms per dwelling
+    7. AGE       proportion of owner-occupied units built prior to 1940
+    8. DIS       weighted distances to five Boston employment centres
+    9. RAD       index of accessibility to radial highways
+    10. TAX      full-value property-tax rate per $10,000
+    11. PTRATIO  pupil-teacher ratio by town
+    12. B        1000(Bk - 0.63)^2 where Bk is the proportion of blacks 
+                 by town
+    13. LSTAT    % lower status of the population
+    14. MEDV     Median value of owner-occupied homes in $1000's
+####Features
+`features`: LSTAT, RM and PTRATIO
+`target`: MEDV
+
+After the training in Jupyter Notebook done, save the file with pkl file extension and save to weight directory.
+
+## Outcome
+I basically used 2 types of regresion to predict the outcome of the boston housing types.
+
+`Linear Regresion`: 
+- Mean Squared error of testing set: 27.687244667341563
+- Mean Squared error of training set: 26.012211922126244
+- R2 variance score of testing set: 0.6850018441906278
+- R2 variance score of training set: 0.6509041568614722
+
+`Polynomial`
+- Mean Squared error of training set: 17.45902806674879
+- Mean Squared error of testing set: 17.2662470627419
+- R2 variance score of training set: 0.8013684023337673
+- R2 variance score of testing set: 0.7682790262415593
